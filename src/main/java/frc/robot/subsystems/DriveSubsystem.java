@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+// import edu.wpi.first.wpilibj.Talon;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveManuallyCommand;
 
@@ -21,7 +22,6 @@ public class DriveSubsystem extends Subsystem {
  public Spark leftBackmotor = new Spark(RobotMap.LeftbackMotorPort);
  public Spark RightFrontmotor = new Spark(RobotMap.rightfrontMotorPort);
  public Spark RightBackmotor = new Spark(RobotMap.rightbackMotorPort);
-
  
 
 
