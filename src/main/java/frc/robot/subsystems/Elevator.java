@@ -7,9 +7,9 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.PWMTalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
 import frc.robot.commands.mainelvcommand;
 
 /**
@@ -17,7 +17,7 @@ import frc.robot.commands.mainelvcommand;
  */
 public class Elevator extends Subsystem {
   // public PWMTalonSRX elevator_motor = new PWMTalonSRX(RobotMap.TalonSRX);
-  private PWMTalonSRX chainmotor = new PWMTalonSRX(RobotMap.ChainmotorPort);
+  //private PWMTalonSRX chainmotor = new TalonSRX(RobotMap.ChainmotorPort);
   // Put methods for controlling this elevator_motorsubsystem
   // here. Call these from Commands.
 
@@ -27,12 +27,18 @@ public class Elevator extends Subsystem {
     setDefaultCommand(new mainelvcommand());
 
   }
+  public class ElevatorModule{
+    private TalonSRX mLift;
+    public ElevatorModule(int kDriveID) {
+      mLift = new TalonSRX(kDriveID);
+    }
+  }
 
 
   
 //did javi put this?
 public void setSpeed(double speed) {
-    chainmotor.setSpeed(speed);
+    //chainmotor.setSpeed(speed);
     //originally 0.5 was the word "speed"
 }
 }

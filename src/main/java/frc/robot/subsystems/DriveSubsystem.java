@@ -7,6 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -22,6 +25,8 @@ public class DriveSubsystem extends Subsystem {
  public Spark leftBackmotor = new Spark(RobotMap.LeftbackMotorPort);
  public Spark RightFrontmotor = new Spark(RobotMap.rightfrontMotorPort);
  public Spark RightBackmotor = new Spark(RobotMap.rightbackMotorPort);
+
+ public static TalonSRX chainMotor = new TalonSRX(0); 
  
 
 
@@ -39,6 +44,9 @@ public DriveSubsystem(){
 
 }
 
+public void MoveElevator(double move){
+  chainMotor.set(ControlMode.PercentOutput, move);
+}
   public void manualDrive(double move, double turn){
     if (Math.abs(move) < .1){
       move = 0;

@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
+
 public class DriveManuallyCommand extends Command {
    public DriveManuallyCommand() {
     //plug in the desired numbers into time, lSpeed, and rSpeed
@@ -30,8 +31,16 @@ public class DriveManuallyCommand extends Command {
     double move = -1*Robot.m_oi.nescontroller.getY();
     double turn = Robot.m_oi.nescontroller.getX();
     Robot.driveSubsystem.manualDrive(move, turn);
-  }
 
+
+    if(Robot.m_oi.getUp()){
+      Robot.driveSubsystem.MoveElevator(0.3);
+    }
+
+    if(Robot.m_oi.getDown()){
+      Robot.driveSubsystem.MoveElevator(-0.3);
+    }
+  }
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
