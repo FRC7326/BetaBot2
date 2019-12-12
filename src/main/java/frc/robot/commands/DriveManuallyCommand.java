@@ -36,9 +36,11 @@ public class DriveManuallyCommand extends Command {
     if(Robot.m_oi.getUp()){
       Robot.driveSubsystem.MoveElevator(0.3);
     }
-
-    if(Robot.m_oi.getDown()){
-      Robot.driveSubsystem.MoveElevator(-0.3);
+    else if(Robot.m_oi.getDown()){
+      Robot.driveSubsystem.MoveElevator(-1);
+    }
+    else{
+      Robot.driveSubsystem.MoveElevator(0);
     }
   }
   // Make this return true when this Command no longer needs to run execute()
