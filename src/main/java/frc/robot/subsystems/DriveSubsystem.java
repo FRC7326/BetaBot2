@@ -14,14 +14,13 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-// import edu.wpi.first.wpilibj.Talon;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveManuallyCommand;
 
 
 
 public class DriveSubsystem extends Subsystem {
- public Spark leftFrontmotor = new Spark(RobotMap.LeftfrontMotorPort);
+ public static Spark leftFrontmotor = new Spark(RobotMap.LeftfrontMotorPort);
  public Spark leftBackmotor = new Spark(RobotMap.LeftbackMotorPort);
  public Spark RightFrontmotor = new Spark(RobotMap.rightfrontMotorPort);
  public Spark RightBackmotor = new Spark(RobotMap.rightbackMotorPort);
@@ -29,9 +28,6 @@ public class DriveSubsystem extends Subsystem {
  public static TalonSRX chainMotor = new TalonSRX(0); 
  
 
-
- //public Spark F_leftMotor = new Spark(RobotMap.F_LeftMotorPort);
- //public Spark F_rightMotor = new Spark(RobotMap.F_RightMotorPort);
 
 SpeedControllerGroup leftMotorGroup = new SpeedControllerGroup(leftFrontmotor, leftBackmotor);
 
@@ -44,32 +40,18 @@ public DriveSubsystem(){
 
 }
 
+
+
 public void MoveElevator(double move){
   chainMotor.set(ControlMode.PercentOutput, move);
+
+
 }
-  public void manualDrive(double move, double turn){
-    if (Math.abs(move) < .1){
-      move = 0;
-        
-      
-    }
-    
-    if (Math.abs(turn) < .1){
-      turn = 0;
-    
-
-    // }
-    // if (Math.abs(move) > .1){
-    //   move = .5;
-
-    // }
-    // if (Math.abs(turn) > .1){
-    //   turn = .5;
-
-    // }
-    }
+public void manualDrive(double move, double turn){
+  if (Math.abs(move) < .1){move = 0;}
+  if (Math.abs(turn) < .1){ turn = 0;}
   drive.arcadeDrive(move, turn);
-  }
+}
 
 
     
