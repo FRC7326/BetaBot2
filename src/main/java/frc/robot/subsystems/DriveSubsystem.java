@@ -33,6 +33,7 @@ SpeedControllerGroup rightMotorGroup = new SpeedControllerGroup(RightFrontmotor,
  public DifferentialDrive drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
  
 //Elevator:
+ public static TalonSRX chainMotor = new TalonSRX(0); 
 
  //speedcontrollergroup, watch betawolves java part 4 1:30
 public DriveSubsystem(){
