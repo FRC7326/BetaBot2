@@ -25,15 +25,14 @@ public class DriveSubsystem extends Subsystem {
  public Spark RightFrontmotor = new Spark(RobotMap.rightfrontMotorPort);
  public Spark RightBackmotor = new Spark(RobotMap.rightbackMotorPort);
 
- public static TalonSRX chainMotor = new TalonSRX(0); 
- 
-
 
 SpeedControllerGroup leftMotorGroup = new SpeedControllerGroup(leftFrontmotor, leftBackmotor);
 
 SpeedControllerGroup rightMotorGroup = new SpeedControllerGroup(RightFrontmotor, RightBackmotor);
 
  public DifferentialDrive drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
+ 
+//Elevator:
 
  //speedcontrollergroup, watch betawolves java part 4 1:30
 public DriveSubsystem(){
