@@ -24,8 +24,6 @@ public class mainelvcommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //modify this command,doesnt seem right
-    // Robot.elevator.setSpeed(0.0);
 
   }
 

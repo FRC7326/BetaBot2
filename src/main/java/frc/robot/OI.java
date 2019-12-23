@@ -7,10 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-// import frc.robot.commands.downcommand;
-// import frc.robot.commands.upcommand;
+import edu.wpi.first.wpilibj.XboxController;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -18,23 +15,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 
 public class OI {
-  public JoystickButton up;
-  public JoystickButton down;
 
-  // public OI(){
-  //   up = new JoystickButton(nescontroller,4);
-  //   up.whenPressed(new upcommand());
-
-  //   down = new JoystickButton(nescontroller,1);
-  //   down.whenPressed(new downcommand());
-  // }
+  public XboxController XboxOnecontroller = new XboxController(RobotMap.XboxOnecontroller);
 
   public boolean getUp(){
-    return nescontroller.getRawButton(4);
+    return XboxOnecontroller.getRawButton(4);
   }
 
   public boolean getDown(){
-    return nescontroller.getRawButton(1);
+    return XboxOnecontroller.getRawButton(1);
   }
 
   
@@ -45,7 +34,6 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-  public Joystick nescontroller = new Joystick(RobotMap.nescontroller);
 }
   // Button button = new JoystickButton(stick, buttonNumber);
 
