@@ -26,7 +26,7 @@ public class Elevator extends Subsystem {
     // Set the default command for a subsystem here.
     setDefaultCommand(new mainelvcommand());
 
-  }
+  } 
   public class ElevatorModule{
     private TalonSRX mLift;
     public ElevatorModule(int kDriveID) {
@@ -38,7 +38,5 @@ public class Elevator extends Subsystem {
   
 //did javi put this?
 public void setSpeed(double speed) {
-    //chainmotor.setSpeed(speed);
-    //originally 0.5 was the word "speed"
 }
 }

@@ -113,14 +113,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-
-    if (m_oi.getUp()){
-      elevator.setSpeed(1);
-    }else if (m_oi.getDown()){
-      elevator.setSpeed(-1);
-    }else{
-      elevator.setSpeed(1);
-    }
   }
 
   /**
