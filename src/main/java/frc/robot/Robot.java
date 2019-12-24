@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.Elevator;
+import frc.robot.ElevatorModule;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -19,7 +19,6 @@ import frc.robot.subsystems.Elevator;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Elevator elevator = new Elevator();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static OI m_oi;
   

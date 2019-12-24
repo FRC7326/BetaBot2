@@ -26,7 +26,7 @@ public static int ChainmotorPort = 5;
 //USB Channels:
 
 //XboxOnecontrollerport
-public static int XboxOnecontroller = 0;
+
 
 }
 //motors, you could define the

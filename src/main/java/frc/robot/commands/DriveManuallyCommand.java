@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
+import edu.wpi.first.wpilibj.XboxController;
+
 public class DriveManuallyCommand extends Command {
    public DriveManuallyCommand() {
     //plug in the desired numbers into time, lSpeed, and rSpeed
@@ -25,22 +27,22 @@ public class DriveManuallyCommand extends Command {
   protected void initialize() {
   }
 
+  XboxController P1 = Robot.m_oi.Controller0; 
+
   // Called repeatedly when this Command is scheduled to run
+  
   @Override
   protected void execute() {
-    double move = -1*Robot.m_oi.XboxOnecontroller.getY();
-    double turn = Robot.m_oi.XboxOnecontroller.getX();
-    Robot.driveSubsystem.manualDrive(move, turn);
+    Robot.driveSubsystem.manualDrive(-1*Robot.m_oi.LeftY(P1), Robot.m_oi.LeftX(P1));
 
-
-    if(Robot.m_oi.getUp()){
-      Robot.driveSubsystem.MoveElevator(0.3);
+    if(Robot.m_oi.BButtonDown(P1)){
+      Robot.elevator.MoveElevator(-0.3);
     }
-    else if(Robot.m_oi.getDown()){
-      Robot.driveSubsystem.MoveElevator(-1);
+    else if(Robot.m_oi.AButtonDown(P1)){
+      Robot.elevator.MoveElevator(0.3);
     }
     else{
-      Robot.driveSubsystem.MoveElevator(0);
+      Robot.elevator.MoveElevator(0);
     }
   }
   // Make this return true when this Command no longer needs to run execute()
