@@ -2,15 +2,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import static frc.robot.Robot.oi;
-import frc.robot.Robot;
-
+import static frc.robot.Robot.driveSubsystem;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class DriveManuallyCommand extends Command {
-   public DriveManuallyCommand() { requires(Robot.driveSubsystem); }
+   public DriveManuallyCommand() { requires(driveSubsystem); }
 
   @Override
   protected void initialize() {}
@@ -19,16 +18,16 @@ public class DriveManuallyCommand extends Command {
   
   @Override
   protected void execute() {
-    Robot.driveSubsystem.manualDrive(-1*oi.LeftY(P1), oi.LeftX(P1));
+    driveSubsystem.manualDrive(-1*oi.LeftY(P1), oi.LeftX(P1));
     
-    
-    Robot.driveSubsystem.Elevator.MoveElevator(oi.LeftTrigger(P1)-oi.RightTrigger(P1));
+
+    driveSubsystem.Elevator.MoveElevator(oi.LeftTrigger(P1)-oi.RightTrigger(P1));
 
     if(oi.XButton(P1)){Piston = Value.kForward;}
     
     else if(oi.YButton(P1)){Piston = Value.kReverse; }
     
-    else{Piston = Value.kOff; } Robot.driveSubsystem.setPiston(Piston);
+    else{Piston = Value.kOff; } driveSubsystem.setPiston(Piston);
   }
   @Override
   protected boolean isFinished() { return false; }

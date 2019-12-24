@@ -14,7 +14,7 @@ public class DriveSubsystem extends Subsystem {
   public Spark RightFrontmotor = new Spark(4);
   public Spark RightBackmotor = new Spark(3);
 
-  public static ElevatorModule Elevator;
+ public static ElevatorModule Elevator;
 
   SpeedControllerGroup leftMotorGroup = new SpeedControllerGroup(leftFrontmotor, leftBackmotor);
   SpeedControllerGroup rightMotorGroup = new SpeedControllerGroup(RightFrontmotor, RightBackmotor);
@@ -23,7 +23,7 @@ public class DriveSubsystem extends Subsystem {
   public static DoubleSolenoid Piston;
   
   public DriveSubsystem(){
-    Elevator  = new ElevatorModule(0);
+    Elevator = new ElevatorModule(0);
     Piston = new DoubleSolenoid(0, 1);
   }
 
@@ -32,6 +32,7 @@ public class DriveSubsystem extends Subsystem {
   public void manualDrive(double move, double turn){
     drive.arcadeDrive(move, turn);   
   }
+  
 
   @Override
   public void initDefaultCommand(){
