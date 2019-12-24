@@ -14,29 +14,26 @@ public class DriveSubsystem extends Subsystem {
   public Spark RightFrontmotor = new Spark(4);
   public Spark RightBackmotor = new Spark(3);
 
- public static ElevatorModule Elevator;
-
   SpeedControllerGroup leftMotorGroup = new SpeedControllerGroup(leftFrontmotor, leftBackmotor);
   SpeedControllerGroup rightMotorGroup = new SpeedControllerGroup(RightFrontmotor, RightBackmotor);
   public DifferentialDrive drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
- 
+
+  public static ElevatorModule Elevator;
   public static DoubleSolenoid Piston;
-  
+
   public DriveSubsystem(){
     Elevator = new ElevatorModule(0);
     Piston = new DoubleSolenoid(0, 1);
   }
-
+  public void setPiston(DoubleSolenoid.Value value){ Piston.set(value);}
   
-
   public void manualDrive(double move, double turn){
     drive.arcadeDrive(move, turn);   
   }
-  
 
   @Override
   public void initDefaultCommand(){
     setDefaultCommand(new DriveManuallyCommand());
   }
-  public void setPiston(DoubleSolenoid.Value value){ Piston.set(value);}
+
 }
