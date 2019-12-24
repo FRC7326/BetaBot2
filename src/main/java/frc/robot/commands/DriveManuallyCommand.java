@@ -21,15 +21,7 @@ public class DriveManuallyCommand extends Command {
   protected void execute() {
     Robot.driveSubsystem.manualDrive(-1*oi.LeftY(P1), oi.LeftX(P1));
     
-    // if(Robot.oi.BButtonDown(P1)){
-    //   Robot.driveSubsystem.Elevator.MoveElevator(-0.3);
-    // }
-    // else if(Robot.oi.AButtonDown(P1)){
-    //   Robot.driveSubsystem.Elevator.MoveElevator(0.3);
-    // }
-    // else{
-    //   Robot.driveSubsystem.Elevator.MoveElevator(0);
-    // }
+    
     Robot.driveSubsystem.Elevator.MoveElevator(oi.LeftTrigger(P1)-oi.RightTrigger(P1));
 
     if(oi.XButton(P1)){Piston = Value.kForward;}
