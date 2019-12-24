@@ -26,9 +26,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {}
   @Override
-  public void teleopPeriodic() { Scheduler.getInstance().run(); 
-  if(oi.)
-  }
+  public void teleopPeriodic() { Scheduler.getInstance().run(); }
   @Override
   public void testPeriodic() { }
 }
