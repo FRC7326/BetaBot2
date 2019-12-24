@@ -9,10 +9,10 @@ public class OI {
   public double LeftY (XboxController Controller){double raw = Controller.getRawAxis(1);return Math.abs(raw)< DEADZONE_LIMIT ? 0.0 : raw;}
   public boolean AButtonDown(XboxController Controller){return Controller.getAButton();}
   public boolean BButtonDown(XboxController Controller){return Controller.getBButton();}
-  public boolean XButton        (XboxController Controller){ return Controller.getXButtonPressed(); }
-  public boolean YButton        (XboxController Controller){ return Controller.getYButtonPressed(); }
+  public boolean XButton   (XboxController Controller){ return Controller.getXButtonPressed(); }
+  public boolean YButton   (XboxController Controller){ return Controller.getYButtonPressed(); }
   public double LeftTrigger (XboxController Controller){ double raw = Controller.getRawAxis(2); return Math.abs(raw) < DEADZONE_LIMIT ? 0.0 : raw; }
   public double RightTrigger(XboxController Controller){ double raw = Controller.getRawAxis(3); return Math.abs(raw) < DEADZONE_LIMIT ? 0.0 : raw; }
-
+  public double RightX (XboxController Controller){ double raw = Controller.getRawAxis(4); return Math.abs(raw) < DEADZONE_LIMIT ? 0.0 : raw; }
 }
 

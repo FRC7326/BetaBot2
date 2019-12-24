@@ -18,7 +18,7 @@ public class DriveManuallyCommand extends Command {
   
   @Override
   protected void execute() {
-    driveSubsystem.manualDrive(-1*oi.LeftY(P1), oi.LeftX(P1));
+    driveSubsystem.manualDrive(-1*oi.LeftY(P1), oi.RightX(P1));
     
 
     driveSubsystem.Elevator.MoveElevator(oi.LeftTrigger(P1)-oi.RightTrigger(P1));
