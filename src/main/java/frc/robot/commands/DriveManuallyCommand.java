@@ -17,18 +17,22 @@ public class DriveManuallyCommand extends Command {
   @Override
   protected void execute() {
     Robot.driveSubsystem.manualDrive(-1*Robot.oi.LeftY(P1), Robot.oi.LeftX(P1));
+    
+    // if(Robot.oi.BButtonDown(P1)){
+    //   Robot.driveSubsystem.Elevator.MoveElevator(-0.3);
+    // }
+    // else if(Robot.oi.AButtonDown(P1)){
+    //   Robot.driveSubsystem.Elevator.MoveElevator(0.3);
+    // }
+    // else{
+    //   Robot.driveSubsystem.Elevator.MoveElevator(0);
+    // }
+    Robot.driveSubsystem.Elevator.MoveElevator(Robot.oi.LeftTrigger(P1)+Robot.oi.RightTrigger(P1));
 
-    if(Robot.oi.BButtonDown(P1)){
-      Robot.driveSubsystem.Elevator.MoveElevator(-0.3);
-    }
-    else if(Robot.oi.AButtonDown(P1)){
-      Robot.driveSubsystem.Elevator.MoveElevator(0.3);
-    }
-    else{
-      Robot.driveSubsystem.Elevator.MoveElevator(0);
-    }
     if(Robot.oi.XButton(P1)){Piston = Value.kForward;}
+    
     else if(Robot.oi.YButton(P1)){Piston = Value.kReverse; }
+    
     else{Piston = Value.kOff; } Robot.driveSubsystem.setPiston(Piston);
   }
   @Override
