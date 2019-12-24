@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,9 +20,14 @@ public class DriveSubsystem extends Subsystem {
   SpeedControllerGroup rightMotorGroup = new SpeedControllerGroup(RightFrontmotor, RightBackmotor);
   public DifferentialDrive drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
  
+  public static DoubleSolenoid Piston;
+  
   public DriveSubsystem(){
     Elevator  = new ElevatorModule(0);
+    Piston = new DoubleSolenoid(0, 1);
   }
+
+  
 
   public void manualDrive(double move, double turn){
     drive.arcadeDrive(move, turn);   
@@ -31,4 +37,5 @@ public class DriveSubsystem extends Subsystem {
   public void initDefaultCommand(){
     setDefaultCommand(new DriveManuallyCommand());
   }
+  public void setPiston(DoubleSolenoid.Value value){ Piston.set(value);}
 }

@@ -2,9 +2,9 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-
-
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class DriveManuallyCommand extends Command {
    public DriveManuallyCommand() { requires(Robot.driveSubsystem); }
@@ -12,6 +12,7 @@ public class DriveManuallyCommand extends Command {
   @Override
   protected void initialize() {}
   XboxController P1 = Robot.oi.Controller0; 
+  DoubleSolenoid.Value Piston = Value.kOff;
   
   @Override
   protected void execute() {
