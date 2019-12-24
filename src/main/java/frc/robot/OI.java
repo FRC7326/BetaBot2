@@ -9,5 +9,7 @@ public class OI {
   public double LeftY (XboxController Controller){double raw = Controller.getRawAxis(1);return Math.abs(raw)< DEADZONE_LIMIT ? 0.0 : raw;}
   public boolean AButtonDown(XboxController Controller){return Controller.getAButton();}
   public boolean BButtonDown(XboxController Controller){return Controller.getBButton();}
+  public boolean XButton        (XboxController Controller){ return Controller.getXButtonPressed(); }
+  public boolean YButton        (XboxController Controller){ return Controller.getYButtonPressed(); }
 }
 
