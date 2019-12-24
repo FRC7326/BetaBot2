@@ -27,6 +27,9 @@ public class DriveManuallyCommand extends Command {
     else{
       Robot.driveSubsystem.Elevator.MoveElevator(0);
     }
+    if(Robot.oi.XButton(P1)){Piston = Value.kForward;}
+    else if(Robot.oi.YButton(P1)){Piston = Value.kReverse; }
+    else{Piston = Value.kOff; } Robot.driveSubsystem.setPiston(Piston);
   }
   @Override
   protected boolean isFinished() { return false; }
