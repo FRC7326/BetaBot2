@@ -5,12 +5,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveSubsystem;
 
 public class Robot extends TimedRobot {
-  public static DriveSubsystem driveSubsystem = new DriveSubsystem();
-  public static OI oi;
+  public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
+  public static final OI oi = new OI();
   Compressor c0 = new Compressor(0);
   
   @Override
-  public void robotInit() { oi = new OI();
+  public void robotInit() {
   c0.setClosedLoopControl(true);
   }
   @Override
