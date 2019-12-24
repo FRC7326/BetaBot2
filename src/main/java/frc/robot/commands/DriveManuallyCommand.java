@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -14,53 +7,30 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class DriveManuallyCommand extends Command {
-   public DriveManuallyCommand() {
-    //plug in the desired numbers into time, lSpeed, and rSpeed
-  
+   public DriveManuallyCommand() { requires(Robot.driveSubsystem); }
 
-    // Use requires() here to declare subsystem dependencies
-     requires(Robot.driveSubsystem);
-  }
-
-  // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
-  }
-
-  XboxController P1 = Robot.m_oi.Controller0; 
-
-  // Called repeatedly when this Command is scheduled to run
+  protected void initialize() {}
+  XboxController P1 = Robot.oi.Controller0; 
   
   @Override
   protected void execute() {
-    Robot.driveSubsystem.manualDrive(-1*Robot.m_oi.LeftY(P1), Robot.m_oi.LeftX(P1));
+    Robot.driveSubsystem.manualDrive(-1*Robot.oi.LeftY(P1), Robot.oi.LeftX(P1));
 
-    if(Robot.m_oi.BButtonDown(P1)){
-      Robot.elevator.MoveElevator(-0.3);
+    if(Robot.oi.BButtonDown(P1)){
+      Robot.driveSubsystem.Elevator.MoveElevator(-0.3);
     }
-    else if(Robot.m_oi.AButtonDown(P1)){
-      Robot.elevator.MoveElevator(0.3);
+    else if(Robot.oi.AButtonDown(P1)){
+      Robot.driveSubsystem.Elevator.MoveElevator(0.3);
     }
     else{
-      Robot.elevator.MoveElevator(0);
+      Robot.driveSubsystem.Elevator.MoveElevator(0);
     }
   }
-  // Make this return true when this Command no longer needs to run execute()
   @Override
-  protected boolean isFinished() {
-    return false;
-  }
-
-  // Called once after isFinished returns true
+  protected boolean isFinished() { return false; }
   @Override
-  protected void end() {
-  
-  }
-
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
+  protected void end() {}
   @Override
-  protected void interrupted() {
-    end();
-  }
+  protected void interrupted() { end(); }
 }
