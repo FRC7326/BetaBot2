@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.ElevatorPositions;
 
 import static frc.robot.Robot.oi;
@@ -29,6 +30,7 @@ public class DriveManuallyCommand extends Command {
     else if(oi.YButton(P1)){Piston = Value.kReverse; }
     
     else{Piston = Value.kOff; } kDriveTrain.setPiston(Piston);
+    SmartDashboard.putNumber("ElevatorPosition: ", kDriveTrain.getLiftPosition());
   }
   @Override
   protected boolean isFinished() { return false; }
