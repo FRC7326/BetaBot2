@@ -30,10 +30,17 @@ public class DriveSubsystem extends Subsystem {
   public void manualDrive(double move, double turn){
     drive.arcadeDrive(move, turn);   
   }
-
+  public void setRawElevator(double speed){ Elevator.setRawElev(speed); }
+	public void setElevatorPosition(double position){ Elevator.setPosition(position); }
+	public void ElevOn(boolean On) { Elevator.setOn(On); }
+	public void ResetElevator() { Elevator.ElevatorReset(); }
+	public void ConfigElevator() { Elevator.configFeedbackSensor(); }
+	public void SetElevatorStatus() { Elevator.setTalonStatus(); }
+	public double getLiftVelocity() { return Elevator.getLiftVelocity(); }
+	public double getLiftPosition() { return Elevator.getLiftPosition(); }
+	
   @Override
   public void initDefaultCommand(){
     setDefaultCommand(new DriveManuallyCommand());
   }
-
 }

@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveSubsystem;
 
 public class Robot extends TimedRobot {
-  public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
+  public static final DriveSubsystem kDriveTrain = new DriveSubsystem();
   public static final OI oi = new OI();
   Compressor c0 = new Compressor(0);
   
