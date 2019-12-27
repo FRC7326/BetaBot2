@@ -43,4 +43,10 @@ public class DriveSubsystem extends Subsystem {
   public void initDefaultCommand(){
     setDefaultCommand(new DriveManuallyCommand());
   }
+  public double returnSensorOutput() {
+    return Math.random();
+  } 
+
+
+
 }

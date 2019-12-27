@@ -14,13 +14,13 @@ public class ElevatorModule {
   private double PIDOutput;
   private boolean on;
   private double setPoint;
-  static final double kP = .0008;
+  static final double kP = .000008;
   public ElevatorModule(int kDriveID) {
     mLift = new TalonSRX(kDriveID);
     SteeringPID = new Notifier(() -> {
       PIDOutput = kP * getError();
-      PIDOutput = Math.min(1, PIDOutput);
-      PIDOutput = Math.max(-.8, PIDOutput); 
+      PIDOutput = Math.min(.8, PIDOutput);
+      PIDOutput = Math.max(-1, PIDOutput); 
       if(on) { mLift.set(ControlMode.PercentOutput, PIDOutput); }
   });
   SteeringPID.startPeriodic(0.01);

@@ -3,6 +3,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.ElevatorPositions;
+import frc.robot.Robot;
+
 
 import static frc.robot.Robot.oi;
 import static frc.robot.Robot.kDriveTrain;
@@ -38,4 +40,10 @@ public class DriveManuallyCommand extends Command {
   protected void end() {}
   @Override
   protected void interrupted() { end(); }
+
+  protected void subsystems() {
+    SmartDashboard.putNumber("Sensor Value", Robot.kDriveTrain.returnSensorOutput());
+  }
+
+
 }
