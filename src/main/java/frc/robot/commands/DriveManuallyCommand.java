@@ -5,6 +5,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.ElevatorPositions;
 import frc.robot.Robot;
 
+import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.util.Color;
+//import com.revrobotics.ColorSensorV3;
 
 import static frc.robot.Robot.oi;
 import static frc.robot.Robot.kDriveTrain;
@@ -23,6 +28,14 @@ public class DriveManuallyCommand extends Command {
   
   @Override
   protected void execute() {
+
+   
+
+
+
+    
+
+    
     kDriveTrain.manualDrive(-1*oi.LeftY(P1), oi.RightX(P1));
     if(oi.StartButton(P1)) { kDriveTrain.ResetElevator(); }
     ElevatorPositions.MoveElevators();
